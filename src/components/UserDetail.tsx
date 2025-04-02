@@ -10,6 +10,7 @@ import {
   FileTextOutlined,
 } from "@ant-design/icons";
 import { Comments, Post, User } from "../types";
+import { useTranslation } from "react-i18next";
 
 const { TabPane } = Tabs;
 
@@ -21,6 +22,7 @@ const UserDetail = () => {
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -76,7 +78,12 @@ const UserDetail = () => {
   if (error) {
     return (
       <div className="flex items-center justify-center min-h-screen">
-        <Alert message="Error" description={error} type="error" showIcon />
+        <Alert
+          message={t("userDetail.errorTitle")}
+          description={t("userDetail.errorDescription")}
+          type="error"
+          showIcon
+        />
       </div>
     );
   }
@@ -84,7 +91,11 @@ const UserDetail = () => {
   if (!user) {
     return (
       <div className="flex items-center justify-center min-h-screen">
-        <Alert message="User not found" type="warning" showIcon />
+        <Alert
+          message={t("userDetail.userNotFound")}
+          type="warning"
+          showIcon
+        />
       </div>
     );
   }
@@ -104,7 +115,7 @@ const UserDetail = () => {
               <MailOutlined /> {user.email}
             </p>
             <p className="flex items-center gap-2">
-              Gender:{" "}
+              {t("userDetail.gender")}:{" "}
               <span
                 className={
                   user.gender === "male" ? "text-blue-500" : "text-pink-500"
@@ -122,7 +133,7 @@ const UserDetail = () => {
               ) : (
                 <CloseCircleOutlined className="mr-1" />
               )}
-              {user.status.toUpperCase()}
+              {t("userDetail.status")}: {user.status.toUpperCase()}
             </Tag>
           </div>
         </div>
@@ -132,7 +143,7 @@ const UserDetail = () => {
           <TabPane
             tab={
               <span>
-                <FileTextOutlined /> Posts ({posts.length})
+                <FileTextOutlined /> {t("userDetail.posts")} ({posts.length})
               </span>
             }
             key="1"
@@ -147,7 +158,7 @@ const UserDetail = () => {
                     extra={
                       <Tag color="blue">
                         <CommentOutlined /> {comments[post.id]?.length || 0}{" "}
-                        comments
+                        {t("userDetail.comments")}
                       </Tag>
                     }
                   >
@@ -160,7 +171,9 @@ const UserDetail = () => {
 
                     {comments[post.id] && comments[post.id].length > 0 && (
                       <div className="mt-4 pl-4 border-l-1 border-gray-200">
-                        <h4 className="text-md font-medium mb-2">Comments</h4>
+                        <h4 className="text-md font-medium mb-2">
+                          {t("userDetail.comments")}
+                        </h4>
                         <List
                           itemLayout="horizontal"
                           dataSource={comments[post.id]}
@@ -191,7 +204,7 @@ const UserDetail = () => {
           <TabPane
             tab={
               <span>
-                <CommentOutlined /> Todos
+                <CommentOutlined /> {t("userDetail.todos")}
               </span>
             }
             disabled

@@ -1,0 +1,30 @@
+{
+    "welcome": "Welcome to the app!",
+    "description": "This is an example of i18next integration.",
+    "filters": {
+        "namePlaceholder": "Filtra per nome",
+        "emailPlaceholder": "Filtra per email",
+        "genderPlaceholder": "Filtra per genere",
+        "statusPlaceholder": "Filtra per stato",
+        "genderMale": "Maschio",
+        "genderFemale": "Femmina",
+        "statusActive": "Attivo",
+        "statusInactive": "Inattivo"
+    },
+    "userTable": {
+        "name": "Nome",
+        "email": "Email",
+        "gender": "Genere",
+        "status": "Stato"
+    },
+    "userDetail": {
+        "errorTitle": "Errore",
+        "errorDescription": "Impossibile caricare i dati dell'utente.",
+        "userNotFound": "Utente non trovato",
+        "gender": "Genere",
+        "posts": "Post",
+        "comments": "Commenti",
+        "todos": "Attività da svolgere",
+        "status": "Stato"
+    }
+}
