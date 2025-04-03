@@ -13,14 +13,14 @@ export default function App() {
 
   return (
     <Router>
-      <header>
+      <header className="p-3 flex justify-end">
         <Select
           defaultValue="en"
-          style={{ width: 120 }}
+          style={{ width: 60 }}
           onChange={changeLanguage}
           options={[
-            { value: "en", label: "🇬🇧 English" },
-            { value: "it", label: "🇮🇹 Italiano" },
+            { value: "en", label: "🇬🇧" },
+            { value: "it", label: "🇮🇹" },
           ]}
         />
       </header>
